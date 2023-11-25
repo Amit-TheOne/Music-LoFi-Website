@@ -1,6 +1,7 @@
 // import reactLogo from './assets/react.svg
 // import viteLogo from '/vite.svg'
 
+import About from "./components/About";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 
@@ -9,6 +10,7 @@ function App() {
         <div>
             <Navbar />
             <Hero />
+            <About />
         </div>
     );
 }

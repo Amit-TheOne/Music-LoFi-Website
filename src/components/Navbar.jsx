@@ -13,7 +13,7 @@ const Navbar = () => {
     };
 
     return (
-        <div className="top-0">
+        <div className="top-0 bg-[#363333] sticky">
             <div className="flex flex-row justify-between items-center h-20 max-w-[1440px] mx-auto px-4 text-white bg-[#363333] md:justify-self-auto">
                 {/* Logo */}
                 <div>
@@ -25,11 +25,11 @@ const Navbar = () => {
                 {/* Navigation */}
                 <div>
                     <ul className="hidden md:flex flex-row text-lg hover:cursor-pointer">
-                        <li className="p-6 hover:bg-[#363333]">Home</li>
-                        <li className="p-6 hover:bg-[#363333]">Company</li>
-                        <li className="p-6 hover:bg-[#363333]">Resources</li>
-                        <li className="p-6 hover:bg-[#363333]">About</li>
-                        <li className="p-6 hover:bg-[#363333]">Contact</li>
+                        <li className="p-6 hover:bg-[#6a6363]">Home</li>
+                        <li className="p-6 hover:bg-[#6a6363]">Resources</li>
+                        <li className="p-6 hover:bg-[#6a6363]">Company</li>
+                        <li className="p-6 hover:bg-[#6a6363]">About</li>
+                        <li className="p-6 hover:bg-[#6a6363]">Contact</li>
                     </ul>
                 </div>
 
