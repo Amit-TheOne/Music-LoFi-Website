@@ -2,9 +2,12 @@ import React from "react";
 
 import { Error, Loader, SongCard } from "../components";
 import { genres } from "../assets/constants";
+import { useGetSongsByGenreQuery } from '../redux/services/shazamCore';
 
 const Discover = () => {
-    const genreTitle = "pop";
+    const { data, isFetching, error } = useGetSongsByGenreQuery(genreListId || 'POP');
+    
+    const genreTitle = genres.find(({ value }) => value === genreListId)?.title;
 
     return (
         <div className="flex flex-col">
