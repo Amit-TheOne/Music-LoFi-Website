@@ -1,13 +1,22 @@
 import React from "react";
 
-import { Error, Loader, SongCard } from "../components";
-import { genres } from "../assets/constants";
-import { useGetSongsByGenreQuery } from '../redux/services/shazamCore';
+import { genres } from "../../assets/genresConstants";
+import { useGetSongsByGenreQuery } from "../../redux/services/shazamCore";
+import Error from "../../components/Music/Error";
+import Loader from "../../components/Music/Loader";
+
+// import { Loader, Error } from "../../components/Music";
 
 const Discover = () => {
-    const { data, isFetching, error } = useGetSongsByGenreQuery(genreListId || 'POP');
-    
+    const { data, isFetching, error } = useGetSongsByGenreQuery(
+        genreListId || "POP"
+    );
+
     const genreTitle = genres.find(({ value }) => value === genreListId)?.title;
+
+    if (isFetching) return <Loader title="Loading songs..." />;
+
+    if (error) return <Error />;
 
     return (
         <div className="flex flex-col">
