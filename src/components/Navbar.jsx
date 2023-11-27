@@ -26,9 +26,9 @@ const Navbar = () => {
                 <div>
                     <ul className="hidden md:flex flex-row text-lg hover:cursor-pointer">
                         <li className="p-6 hover:bg-[#6a6363]">Home</li>
-                        <li className="p-6 hover:bg-[#6a6363]">Resources</li>
-                        <li className="p-6 hover:bg-[#6a6363]">Company</li>
                         <li className="p-6 hover:bg-[#6a6363]">About</li>
+                        <li className="p-6 hover:bg-[#6a6363]">Features</li>
+                        {/* <li className="p-6 hover:bg-[#6a6363]">About</li> */}
                         <li className="p-6 hover:bg-[#6a6363]">Contact</li>
                     </ul>
                 </div>
