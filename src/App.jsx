@@ -1,13 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
-import MusicPage from "./pages/MusicPage";
+import HomeRoute from "./pages/HomeRoute";
+import MusicRoute from "./pages/MusicRoute";
 
 function App() {
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/music/*" element={<MusicPage />} />
+            <Route path="/" element={<HomeRoute />} />
+            <Route path="/music/*" element={<MusicRoute />} />
         </Routes>
     );
 }
