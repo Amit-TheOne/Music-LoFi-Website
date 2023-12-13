@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Routes, Route } from "react-router-dom";
 import Discover from "./Music/Discover";
-import MusicPlayer from "../components/MusicPlayer"
+import MusicPlayer from "../components/MusicPlayer/MusicPlayer"
 
 const MusicRoute = () => {
     const { activeSong } = useSelector((state) => state.player);
