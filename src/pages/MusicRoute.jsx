@@ -2,13 +2,14 @@ import { useSelector } from 'react-redux';
 import { Routes, Route } from "react-router-dom";
 import Discover from "./Music/Discover";
 import MusicPlayer from "../components/MusicPlayer/MusicPlayer"
+import Sidebar from "../components/Music/Sidebar"
 
 const MusicRoute = () => {
     const { activeSong } = useSelector((state) => state.player);
     
     return (
         <div className="relative flex">
-        {/* <Sidebar /> */}
+        <Sidebar />
         <div className="flex-1 flex flex-col bg-gradient-to-br from-black to-[#121286]">
           {/* <Searchbar /> */}
   
