@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Discover from "./Music/Discover";
 import MusicPlayer from "../components/MusicPlayer/MusicPlayer"
 import Sidebar from "../components/Music/Sidebar"
+import TopPlay from '../components/Music/TopPlay';
 
 const MusicRoute = () => {
     const { activeSong } = useSelector((state) => state.player);
@@ -20,7 +21,7 @@ const MusicRoute = () => {
               </Routes>
             </div>
             <div className="xl:sticky relative top-0 h-fit">
-              {/* <TopPlay /> */}
+              <TopPlay />
             </div>
           </div>
         </div>
