@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import { DetailsHeader, Error, Loader, RelatedSongs } from '../../components';
 import Error from '../../components/Music/Error';
 import Loader from '../../components/Music/Loader';
+import DetailsHeader from '../../components/Music/DetailsHeader';
 
 import { setActiveSong, playPause } from '../../redux/features/playerSlice';
 import { useGetSongDetailsQuery, useGetSongRelatedQuery } from '../../redux/services/shazamCore';
@@ -33,10 +34,11 @@ const SongDetails = () => {
 
   return (
     <div className="flex flex-col">
-      {/* <DetailsHeader
+      <DetailsHeader
         artistId={artistId}
         songData={songData}
-      /> */}
+        songId={songid}
+      />
 
       <div className="mb-10">
         <h2 className="text-white text-3xl font-bold">Lyrics:</h2>
