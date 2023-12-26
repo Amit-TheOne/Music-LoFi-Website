@@ -4,6 +4,7 @@ import Discover from "./Music/Discover";
 import MusicPlayer from "../components/MusicPlayer/MusicPlayer"
 import Sidebar from "../components/Music/Sidebar"
 import TopPlay from '../components/Music/TopPlay';
+import SongDetails from './Music/SongDetails';
 
 const MusicRoute = () => {
     const { activeSong } = useSelector((state) => state.player);
@@ -17,7 +18,8 @@ const MusicRoute = () => {
           <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
             <div className="flex-1 h-fit pb-40">
               <Routes children={true}>
-              <Route index element={<Discover />} />
+                <Route index element={<Discover />} />
+                <Route path="/songs/:songid" element={ <SongDetails/> } />
               </Routes>
             </div>
             <div className="xl:sticky relative top-0 h-fit">
