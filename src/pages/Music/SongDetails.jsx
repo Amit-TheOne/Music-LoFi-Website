@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Error from '../../components/Music/Error';
 import Loader from '../../components/Music/Loader';
 import DetailsHeader from '../../components/Music/DetailsHeader';
+import RelatedSongs from '../../components/Music/RelatedSongs';
 
 import { setActiveSong, playPause } from '../../redux/features/playerSlice';
 import { useGetSongDetailsQuery, useGetSongRelatedQuery } from '../../redux/services/shazamCore';
@@ -14,7 +15,7 @@ const SongDetails = () => {
   const { songid, id: artistId } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
-  const { data: related, isFetching: isFetchinRelatedSongs, error } = useGetSongRelatedQuery({ songid });
+  const { data, isFetching: isFetchinRelatedSongs, error } = useGetSongRelatedQuery({ songid });
   const { data: songData, isFetching: isFetchingSongDetails } = useGetSongDetailsQuery({ songid });
 
   const songLyricsId = songData?.resources?.["shazam-songs"]?.[songid]?.relationships?.lyrics?.data[0].id;
@@ -54,14 +55,14 @@ const SongDetails = () => {
         </div>
       </div>
 
-      {/* <RelatedSongs
+      <RelatedSongs
         data={data}
         artistId={artistId}
         isPlaying={isPlaying}
         activeSong={activeSong}
         handlePauseClick={handlePauseClick}
         handlePlayClick={handlePlayClick}
-      /> */}
+      />
 
     </div>
   );
