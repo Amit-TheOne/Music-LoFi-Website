@@ -16,14 +16,9 @@ const SongDetails = () => {
   const { data: related, isFetching: isFetchinRelatedSongs, error } = useGetSongRelatedQuery({ songid });
   const { data: songData, isFetching: isFetchingSongDetails } = useGetSongDetailsQuery({ songid });
 
-  // const songLyricsId = songData?.resources?.["shazam-songs"];
-  const songLyricsId = songData?.resources?.lyrics;
-  // const variable = songLyricsId?.attributes?.text;
-  // const variable = JSON.stringify(songLyricsId);
+  const songLyricsId = songData?.resources?.["shazam-songs"]?.[songid]?.relationships?.lyrics?.data[0].id;
 
   if (isFetchingSongDetails && isFetchinRelatedSongs) return <Loader title="Searching song details" />;
-
-  // console.log(songLyricsId);
 
   if (error) return <Error />;
 
@@ -47,8 +42,8 @@ const SongDetails = () => {
         <h2 className="text-white text-3xl font-bold">Lyrics:</h2>
 
         <div className="mt-5">
-          {songData?.resources?.lyrics?.attributes?.text === 'true'
-            ? songData?.resources?.lyrics?.attribute?.text.map((line, i) => (
+          {songData?.resources?.lyrics?.[songLyricsId]?.type === 'lyrics'
+            ? songData?.resources?.lyrics?.[songLyricsId]?.attributes?.text.map((line, i) => (
               <p key={`lyrics-${line}-${i}`} className="text-gray-400 text-base my-1">{line}</p>
             ))
             : (
