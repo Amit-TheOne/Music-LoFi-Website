@@ -6,14 +6,15 @@ import Error from '../../components/Music/Error';
 import Loader from '../../components/Music/Loader';
 import RelatedSongs from '../../components/Music/RelatedSongs';
 
-import { useGetArtistDetailsQuery } from '../../redux/services/shazamCore';
+import { useGetArtistDetailsQuery, useGetArtistSongsQuery } from '../../redux/services/shazamCore';
 
 const ArtistDetails = () => { 
   const { id: artistId } = useParams();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data: artistData, isFetching: isFetchingArtistDetails, error } = useGetArtistDetailsQuery(artistId);
+  const { data: artistSongs, isFetching: isFetchingArtistSongs } = useGetArtistSongsQuery({artistId});
 
-  if (isFetchingArtistDetails) return <Loader title="Loading artist details..." />;
+  if (isFetchingArtistDetails || isFetchingArtistSongs) return <Loader title="Loading artist details..." />;
 
   if (error) return <Error />;
 
@@ -24,12 +25,12 @@ const ArtistDetails = () => {
         artistData={artistData?.data[0]}
       />
 
-      {/* <RelatedSongs
-        data={artistData?.data[0].views['top-songs']?.data}
+      <RelatedSongs
+        artistSongs={artistSongs}
         artistId={artistId}
         isPlaying={isPlaying}
         activeSong={activeSong}
-      /> */}
+      />
     </div>
   );
 };
