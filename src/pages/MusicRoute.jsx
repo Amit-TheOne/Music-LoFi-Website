@@ -5,6 +5,7 @@ import MusicPlayer from "../components/MusicPlayer/MusicPlayer"
 import Sidebar from "../components/Music/Sidebar"
 import TopPlay from '../components/Music/TopPlay';
 import SongDetails from './Music/SongDetails';
+import ArtistDetails from './Music/ArtistDetails';
 
 const MusicRoute = () => {
     const { activeSong } = useSelector((state) => state.player);
@@ -20,6 +21,7 @@ const MusicRoute = () => {
               <Routes children={true}>
                 <Route index element={<Discover />} />
                 <Route path="/songs/:songid" element={ <SongDetails/> } />
+                <Route path="/artists/:id" element={ <ArtistDetails/> } />
               </Routes>
             </div>
             <div className="xl:sticky relative top-0 h-fit">
